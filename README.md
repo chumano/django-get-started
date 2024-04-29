@@ -34,6 +34,10 @@ python manage.py runserver 0.0.0.0:8000
 
 # migrate
 python manage.py migrate
+
+# shell
+#   https://docs.djangoproject.com/en/4.2/intro/tutorial02/#playing-with-the-api
+python manage.py shell
 ```
 
 ## create a app in project
