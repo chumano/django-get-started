@@ -40,6 +40,10 @@ python manage.py migrate
 https://docs.djangoproject.com/en/4.2/intro/tutorial01/#creating-the-polls-app
 ```bash
 python manage.py startapp polls
+
+# makemigrations when models change
+#   must add PollsConfig to INSTALLED_APPS
+python manage.py makemigrations polls
 ```
 
 
