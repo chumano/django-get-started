@@ -15,3 +15,7 @@ run:
 collectstatic:
 	cd $(PRJECT_DIR)
 	python manage.py collectstatic
+
+migrate:
+	cd $(PRJECT_DIR)
+	python manage.py migrate
