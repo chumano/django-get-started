@@ -1,3 +1,4 @@
 ﻿.venv
 mysite/mysite/__pycache__
 mysite/static
+__pycache__
