@@ -44,6 +44,10 @@ python manage.py startapp polls
 # makemigrations when models change
 #   must add PollsConfig to INSTALLED_APPS
 python manage.py makemigrations polls
+
+# view a polls migration sql step
+python manage.py sqlmigrate polls 0001
+python manage.py sqlmigrate polls 0002
 ```
 
 
