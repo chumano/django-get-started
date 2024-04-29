@@ -38,6 +38,9 @@ python manage.py migrate
 # shell
 #   https://docs.djangoproject.com/en/4.2/intro/tutorial02/#playing-with-the-api
 python manage.py shell
+
+# create super user
+python manage.py createsuperuser
 ```
 
 ## create a app in project
