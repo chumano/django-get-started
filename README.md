@@ -17,6 +17,7 @@ python -m venv .venv
 ```bash
 # format code
 python -m black ./mysite
+
 ```
 ## install django
 ```bash
@@ -76,3 +77,4 @@ pip install -r requirements.txt
 - https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
 - https://github.com/wsvincent/awesome-django
 - https://github.com/psf/black : format code
+- https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
