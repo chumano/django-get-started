@@ -67,13 +67,15 @@ python manage.py sqlmigrate polls 0002
 ## requirements file
 ```bash
 # create file
-pip freeze > requirements.txt
+pip freeze > requirements_temp.txt # temp file
 
 # install from requirement
 pip install -r requirements.txt
+pip install -r requirements_dev.txt # for dev
 ```
 
 ## Documents
+- https://docs.djangoproject.com/en/4.2/contents/ : django documentation
 - https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
 - https://github.com/wsvincent/awesome-django
 - https://github.com/psf/black : format code
