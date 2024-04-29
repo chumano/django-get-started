@@ -3,6 +3,7 @@
 ## Dependencies
 - Python 3.9
 - Django 4.2
+- black : format code
 
 ##  .venv
 ```bash
@@ -12,7 +13,11 @@ python -m venv .venv
 # activate
 .venv/Scripts/Activate
 ```
-
+# dev tools
+```bash
+# format code
+python -m black ./mysite
+```
 ## install django
 ```bash
 python -m pip install Django==4.2
@@ -70,3 +75,4 @@ pip install -r requirements.txt
 ## Documents
 - https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
 - https://github.com/wsvincent/awesome-django
+- https://github.com/psf/black : format code

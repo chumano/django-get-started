@@ -19,3 +19,6 @@ collectstatic:
 migrate:
 	cd $(PRJECT_DIR)
 	python manage.py migrate
+
+format:
+	python -m black ./mysite
