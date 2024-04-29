@@ -28,7 +28,17 @@ django-admin startproject mysite
 # run project
 cd mysite
 python manage.py runserver
+
+# run with port
+python manage.py runserver 0.0.0.0:8000
 ```
+
+## create a app in project
+https://docs.djangoproject.com/en/4.2/intro/tutorial01/#creating-the-polls-app
+```bash
+python manage.py startapp polls
+```
+
 
 ## requirements file
 ```bash
@@ -38,3 +48,7 @@ pip freeze > requirements.txt
 # install from requirement
 pip install -r requirements.txt
 ```
+
+## Documents
+- https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
+- https://github.com/wsvincent/awesome-django
