@@ -22,3 +22,6 @@ python -m django --version
 ```
 
 ## Create Django project
+```bash
+ django-admin startproject mysite
+```
