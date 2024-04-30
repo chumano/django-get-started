@@ -41,6 +41,8 @@ python manage.py runserver 0.0.0.0:8000
 # migrate
 python manage.py migrate
 
+python .\manage.py showmigrations
+
 # shell
 #   https://docs.djangoproject.com/en/4.2/intro/tutorial02/#playing-with-the-api
 python manage.py shell
@@ -76,6 +78,8 @@ pip install -r requirements_dev.txt # for dev
 
 ## Documents
 - https://docs.djangoproject.com/en/4.2/contents/ : django documentation
+- https://docs.djangoproject.com/en/4.2/ref/settings/#core-settings
+
 - https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
 - https://github.com/wsvincent/awesome-django
 - https://github.com/psf/black : format code

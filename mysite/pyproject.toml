@@ -3,6 +3,14 @@ line-length = 120
 target-version = ['py39']
 exclude = '''
 /(
-  
+    .*/migrations/.*
+  | mysite/.*/settings.py
+  | management
+  | scripts
+  | docs
+  | static
+  | migrations
+  | node_modules
+  | mysite
 )/
 '''
