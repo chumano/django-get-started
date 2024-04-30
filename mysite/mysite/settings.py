@@ -27,6 +27,53 @@ SECRET_KEY = 'django-insecure-h)2wk_nx*u%#_@bz#_l@k-in44=7%ta%4(kyz4(=)mg8&tfk6k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGGING = {
+    'version': 1,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }
+    },
+    "formatters": {
+        "default": {
+            "()": "django.utils.log.ServerFormatter",
+            "format": "[{server_time}] {message}",
+            "style": "{",
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            "formatter": 'default',
+        }
+    },
+    'loggers': {
+        "django": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+        "django.server": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+        },
+        "mysite": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+        "polls": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+    }
+}
+
 ALLOWED_HOSTS = []
 
 
