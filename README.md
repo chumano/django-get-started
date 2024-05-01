@@ -84,3 +84,5 @@ pip install -r requirements_dev.txt # for dev
 - https://github.com/wsvincent/awesome-django
 - https://github.com/psf/black : format code
 - https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+
+- https://github.com/vintasoftware/django-react-boilerplate

@@ -80,7 +80,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,6 +87,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'mysite',
+    'polls', #polls.apps.PollsConfig
 ]
 
 MIDDLEWARE = [
@@ -105,8 +107,11 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            # os.path.join(BASE_DIR, "mysite/templates"),
+            # os.path.join(BASE_DIR, "polls/templates")
+        ],
+        'APP_DIRS': True ,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -114,6 +119,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            # "loaders": [
+            #     "django.template.loaders.filesystem.Loader",
+            #     "django.template.loaders.app_directories.Loader",
+            #     #"my_app.loaders.MyCustomLoader",  # Add your custom loader
+            # ],
         },
     },
 ]
@@ -167,8 +177,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_ROOT = os.getenv("STATIC_ROOT", os.path.join(BASE_DIR, "static"))
-print(f'{STATIC_ROOT=}')
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'mysite/static/'),
+    os.path.join(BASE_DIR, 'polls/static/'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

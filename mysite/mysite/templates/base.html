@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django GetStarted App</title>
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet"/>
+    
+</head>
+<body>
+    <a href="/polls">{{ "Questions" }}</a>
+    <a href="/polls/choices">{{ "Choices" }}</a>
+
+    <div class="container">
+        {% block content %}
+            hello block content
+        {% endblock content %}
+    </div>
+    
+</body>
+</html>

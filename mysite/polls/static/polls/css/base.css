@@ -1,0 +1,12 @@
+.questions-container{
+    padding: 10px;
+}
+
+.questions-container  .question-item{
+    padding: 5px;
+    color: chocolate;
+}
+
+.questions-filters a{
+    margin-left: 10x;
+}
