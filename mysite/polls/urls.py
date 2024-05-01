@@ -1,9 +1,8 @@
-from django.urls import path
+from django.urls import include, path, re_path
 
-from .views import index, get_questions, get_question_by_id
+from .views import index
 
 urlpatterns = [
     path("", index, name="index" ),
-    path("questions/<int:object_id>/", get_question_by_id, name="get_question_by_id"),
-    path("questions", get_questions, name="questions" ),
+    path("api/", include("polls.api.urls")), 
 ]
