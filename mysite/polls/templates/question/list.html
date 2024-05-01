@@ -6,8 +6,15 @@
 <body>
     <h1>Questions</h1>
     <a href="/polls/choices">{{ "choices" }}</a>
+    <div style="margin-top:4px">
+        <a href="{% url 'index' %}"> All </a>
+        <a href="{% url 'index' %}?type=Single"> Single </a>
+        <a href="{% url 'index' %}?type=Multiple"> Mulitple </a>
+        <a href="{% url 'index' %}?date=today"> Today </a>
+    </div>
     <div>
         {% if questions %}
+        <h5>Have {{num_questions}} questions</h5>
         <ul>
         {% for question in questions %}
             <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>

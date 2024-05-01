@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import models
+from django.db.models import Q
 from django.utils import timezone
 
 QUESTION_TYPES = (
@@ -8,6 +9,17 @@ QUESTION_TYPES = (
     ("Multiple","Multiple choose")
  )
 # Create your models here.
+class QuestionQuerySet(models.QuerySet):
+    def single_type(self):
+        return self.filter(Q(type="Single"))
+    def multi_type(self):
+        return self.filter(Q(type="Multiple"))
+    
+    def published_today(self):
+        from datetime import date
+        today = date.today()
+        return self.filter(Q(pub_date__date=today))
+    
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
@@ -22,6 +34,8 @@ class Question(models.Model):
     
     def __repr__(self) -> str:
         return f'Question(id={self.id}, question_text={self.question_text}, pub_date={self.pub_date})'
+    
+    objects = QuestionQuerySet.as_manager()
 
 
 class Choice(models.Model):
