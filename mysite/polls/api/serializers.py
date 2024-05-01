@@ -6,5 +6,5 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         #fields = '__all__'
-        fields = ["id","question_text"]
+        fields = ["id","question_text","choice_set"]
         many = True

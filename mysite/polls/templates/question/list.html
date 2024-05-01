@@ -5,5 +5,17 @@
 </head>
 <body>
     <h1>Questions</h1>
+    <a href="{% url 'choices' %}">{{ "choices" }}</a>
+    <div>
+        {% if questions %}
+        <ul>
+        {% for question in questions %}
+            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>No questions are available.</p>
+        {% endif %}
+    </div>
 </body>
 </html>
