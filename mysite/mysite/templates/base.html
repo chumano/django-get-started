@@ -4,7 +4,8 @@
 <head>
     <title>Django GetStarted App</title>
     <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet"/>
-    
+    {% block head %}
+    {% endblock head %}
 </head>
 <body>
     <a href="/polls">{{ "Questions" }}</a>

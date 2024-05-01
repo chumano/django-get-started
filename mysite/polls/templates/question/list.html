@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block head %}
+<link href="{% static 'polls/css/base.css' %}" rel="stylesheet"/>
+{% endblock head %}
+
 {% block content %}
 <h1>Questions</h1>
 <a href="/polls/choices">{{ "choices" }}</a>
