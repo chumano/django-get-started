@@ -76,6 +76,11 @@ pip install -r requirements.txt
 pip install -r requirements_dev.txt # for dev
 ```
 
+## Packing app
+- https://docs.djangoproject.com/en/4.2/intro/reusable-apps/
+- https://packaging.python.org/en/latest/tutorials/packaging-projects/
+- https://setuptools.pypa.io/en/latest/
+
 ## Documents
 - https://docs.djangoproject.com/en/4.2/contents/ : django documentation
 - https://docs.djangoproject.com/en/4.2/ref/settings/#core-settings

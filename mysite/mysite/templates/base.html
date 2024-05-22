@@ -2,20 +2,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Django GetStarted App</title>
+    <title>
+        {% block title %} 
+        Django GetStarted App
+        {% endblock title %}
+    </title>
     <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet"/>
     {% block head %}
+     <link href="{% static 'css/base.css' %}" rel="stylesheet"/>
     {% endblock head %}
 </head>
 <body>
-    <a href="/polls">{{ "Questions" }}</a>
-    <a href="/polls/choices">{{ "Choices" }}</a>
+    <div class="nav-container d-flex flex-row">
+        <div class="mr-auto">
+            <a href="/">{{ "Home" }}</a>
+            <a href="/polls">{{ "Questions" }}</a>
+            <a href="/polls/choices">{{ "Choices" }}</a>
+        </div>
+
+        <div class="mr-4">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}">Logout </a>
+            {% else %}
+            
+            <a href="{% url 'login'%}">Login </a>
+            {% endif %}
+        </div>
+    </div>
 
     <div class="container">
         {% block content %}
             hello block content
         {% endblock content %}
     </div>
-    
+
+    {% for _ in ''|center:20 %}
+        {% if forloop.first %} [ {% endif %}
+        {{ forloop.counter }}
+        {% if forloop.counter|divisibleby:3 %}
+            <>
+        {% endif%}
+        
+        {% if forloop.last %} ] {% endif %}
+    {% endfor %}
 </body>
 </html>

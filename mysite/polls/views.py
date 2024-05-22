@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import Http404, HttpRequest, HttpResponse, JsonResponse
 from django.core import serializers
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 import logging
 
@@ -11,7 +12,7 @@ from .serializers import QuestionSerializer
 logger = logging.getLogger(__name__)
 
 # Create your views here.
-
+@login_required
 def index(request: HttpRequest):
     question_type = request.GET.get("type")
     query_date = request.GET.get("date")

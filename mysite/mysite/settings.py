@@ -24,6 +24,11 @@ print(f'{BASE_DIR=}')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-h)2wk_nx*u%#_@bz#_l@k-in44=7%ta%4(kyz4(=)mg8&tfk6k'
 
+# Authentication
+LOGIN_URL="login"
+LOGIN_REDIRECT_URL="home"
+LOGOUT_REDIRECT_URL="home"
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
