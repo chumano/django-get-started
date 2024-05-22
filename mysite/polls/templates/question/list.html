@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %} 
+    Questions Page
+{% endblock title %}
+
 {% block head %}
-<link href="{% static 'polls/css/base.css' %}" rel="stylesheet"/>
+    {% comment %} block.super: Use block from extends {% endcomment %}
+    {{ block.super }} 
+    <link href="{% static 'polls/css/base.css' %}" rel="stylesheet"/>
 {% endblock head %}
 
 {% block content %}
@@ -19,7 +25,11 @@
     <h5>Have {{num_questions}} questions</h5>
     <ul>
     {% for question in questions %}
-        <li class="question-item" ><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+        <li class="question-item" >
+            <a href="{% url 'detail' question.id %}">
+            {{ question.question_text | center:"2000" }}
+            </a>
+        </li>
     {% endfor %}
     </ul>
     {% else %}

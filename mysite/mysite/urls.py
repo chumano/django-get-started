@@ -15,12 +15,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.http import HttpResponse
+from django.urls import include, path, register_converter
+from django.contrib.auth.views import LoginView, LogoutView
+
 # from .views import welcome as wel
 from . import views
+class FourDigitYearConverter:
+    regex = "[0-9]{4}"
+
+    def to_python(self, value):
+        return int(value)
+
+    def to_url(self, value):
+        return "%04d" % value
+    
+register_converter(FourDigitYearConverter,"yyyy")
+
+def my_view(request, year):
+    # This function will be executed when the URL pattern matches
+    return HttpResponse(f'{year=} This is the response from the inline view function.')
 
 urlpatterns = [
+    path('', views.home ,name="home"),
+    path('login/', LoginView.as_view(template_name ="auth/login.html"), name="login"),
+    path('logout/', LogoutView.as_view() ,name="logout"),
     path('admin/', admin.site.urls),
     path("polls/", include("polls.urls")),
-    path('', views.welcome),
+    path("test/<yyyy:year>/", my_view)
 ]
+

@@ -1,9 +1,9 @@
 
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
 
 
-def welcome(request: HttpRequest, **kwargs):
-    print(f'views.welcome({request=}, {kwargs=})')
+def home(request: HttpRequest, **kwargs):
     par = request.GET.get("par")
     print(f'\t{par=}')
-    return HttpResponse("hello from chumano1")
+    return render(request, "home.html")

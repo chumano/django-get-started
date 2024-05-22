@@ -1,6 +1,22 @@
-from django.urls import include, path, re_path
+from django.http import HttpResponse
+from django.urls import include, path, re_path, register_converter
 
 from . import views 
+
+class FourDigitYearConverter:
+    regex = "[0-9]{4}"
+
+    def to_python(self, value):
+        return int(value) + 1000 
+
+    def to_url(self, value):
+        return "%04d" % value
+    
+register_converter(FourDigitYearConverter,"yyyy")
+
+def my_view(request, year):
+    # This function will be executed when the URL pattern matches
+    return HttpResponse(f'{year=} Polls This is the response from the inline view function.')
 
 urlpatterns = [
     path("", views.index, name="index" ),
@@ -13,4 +29,5 @@ urlpatterns = [
 
     # api
     path("api/", include("polls.api.urls")), 
+    path("test/<yyyy:year>/", my_view)
 ]
